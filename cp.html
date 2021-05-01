@@ -75,10 +75,10 @@
 	<body>
 		<select>
 			<option value="">
-				OCPP-J2.0
+				OCPP-J2.0.1
 			</option>
 		</select>
-		<input id="CP" type="text" placeholder="ChargePoint ID" value="ws://127.0.0.1:8080/websocket/CentralSystemService/ChargePointID" />
+		<input id="CP" type="text" placeholder="ChargePoint ID" value="ws://127.0.0.1:8001/websocket/CentralSystemService/ChargePointID" />
 		<button id="connect">Connect</button>
 		<button id="send">Authorize</button>
 		<button id="start">Start Transaction - EVDetected</button>
@@ -178,7 +178,7 @@
 					$('#red').show();
 					_websocket.close(3001);
 				} else {
-					_websocket = new WebSocket(wsurl + "" + CP, ["ocpp2.0", "ocpp1.5"]);
+					_websocket = new WebSocket(wsurl + "" + CP, ["ocpp2.0.1"]);
 					_websocket.onopen = function(authorizationData) {
 
 						sessionStorage.setItem('LastAction', "BootNotification");
@@ -626,7 +626,7 @@
 						"id": 2,
 						"connectorId": 2
 					},
-					"transactionData": {
+					"transactionInfo": {
 						"id": lastTranId,
 						"remoteStartId": 0,
 						"chargingState": charge_state
@@ -656,7 +656,7 @@
 						"id": 2,
 						"connectorId": 2
 					},
-					"transactionData": {
+					"transactionInfo": {
 						"id": lastTranId,
 						"remoteStartId": 0,
 						"chargingState": charger_state
@@ -700,7 +700,7 @@
 						"id": 2,
 						"connectorId": 2
 					},
-					"transactionData": {
+					"transactionInfo": {
 						"id": lastTranId,
 						"remoteStartId": 0
 					},
@@ -744,7 +744,7 @@
 						"serialNumber": "avt.001.13.1",
 						"model": "AVT-Express",
 						"modem": {
-							"iccid": "MMCC IINN NNNN NNNN NN C x",
+							"iccid": "MMCCIINNNNNNNNNNNNCx",
 							"imsi": "520031234567890"
 						},
 						"vendorName": "AVT-Company",
